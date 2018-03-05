@@ -1,0 +1,92 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/setting">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="open"
+            android:title="@string/pref_open" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:dependency="open"
+            android:key="amount"
+            android:title="@string/pref_amount" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:dependency="open"
+            android:key="self"
+            android:title="@string/pref_self" />
+
+        <ListPreference
+            android:defaultValue="SEND"
+            android:dependency="open"
+            android:entries="@array/password"
+            android:entryValues="@array/password_entries"
+            android:key="password"
+            android:title="@string/password" />
+
+        <ListPreference
+            android:defaultValue="CLOSE"
+            android:dependency="open"
+            android:entries="@array/reply"
+            android:entryValues="@array/reply_entries"
+            android:key="reply"
+            android:title="@string/reply" />
+
+        <EditTextPreference
+            android:dependency="open"
+            android:hint="@string/got_reply_hit"
+            android:key="got_reply"
+            android:title="@string/got_reply" />
+
+        <EditTextPreference
+            android:dependency="open"
+            android:hint="@string/missed_reply_hit"
+            android:key="missed_reply"
+            android:title="@string/missed_reply" />
+
+        <EditTextPreference
+            android:dependency="open"
+            android:hint="@string/group_hit"
+            android:key="group"
+            android:title="@string/group" />
+
+        <EditTextPreference
+            android:dependency="open"
+            android:hint="@string/keywords_hit"
+            android:key="keywords"
+            android:title="@string/keywords" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:dependency="open"
+            android:key="delay"
+            android:title="@string/pref_delay" />
+
+        <me.veryyoung.qq.luckymoney.SeekBarPreference
+            pref_kind="delay_time"
+            android:defaultValue="true"
+            android:dependency="delay"
+            android:layout="@layout/preference_checkbox"
+            android:title="@string/pref_delay_time" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/about">
+        <Preference
+            android:key="author"
+            android:summary="veryyoung"
+            android:title="作者">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/veryyoung" />
+        </Preference>
+        <Preference
+            android:key="donate_alipay"
+            android:title="支付宝捐赠" />
+        <Preference
+            android:key="donate_wechat"
+            android:title="微信捐赠" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

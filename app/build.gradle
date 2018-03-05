@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "me.veryyoung.qq.luckymoney"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 21
+        versionName "1.1.4"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    provided files('libs/XposedBridgeApi-82.jar')
+    compile 'com.android.support:appcompat-v7:23.1.1'
+}
+
